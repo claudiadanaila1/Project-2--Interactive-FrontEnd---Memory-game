@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+   min-height: 100vh;
+    display: flex;
+    background:radial-gradient(#48a738, #76ca8ccf);
+}
+
+body{
+    margin:auto;
+    justify-content:center;
+}
+
+.title {
+    font-family:"Ubuntu", sans-serif;
+    font-size: 6em;
+    text-align: center;
+    font-weight: normal;
+    color:#0a28ce;
+    margin:20px;
+}
+
+.game-info-container {
+    grid-column: 1/-1;
+    justify-content: space-between;
+    display: flex;
+    margin:50px;
+}
+
+.game-info {
+    font-family: "Ubuntu", sans-serif;
+    font-size:3em;
+    color:#0a28ce;
+}
+
+.memory-game {
+    height:700px;
+    width:700px;
+    display:flex;
+    flex-wrap: wrap;
+    perspective:1000px;
+    margin:auto;
+}
+
+.memory-card {
+  width: calc(25% - 10px);
+  height: calc(33.333% - 10px);
+  margin: 5px;
+  position: relative;
+  transform: scale(1);
+  transform-style: preserve-3d;
+  transition: transform .5s;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+}
+
+.memory-card:active {
+  transform: scale(0.96);
+  transition: transform .3s;
+}
+
+.memory-card.flip {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  position: absolute;
+  border-radius: 5px;
+  background: #0a4e88;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  transform: rotateY(180deg);
+}
