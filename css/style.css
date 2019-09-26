@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
 
+@import url('https://fonts.googleapis.com/css?family=Kalam&display=swap');
+
+
 * {
     padding: 0;
     margin: 0;
@@ -9,7 +12,7 @@
 html {
    min-height: 100vh;
     display: flex;
-    background:radial-gradient(#48a738, #76ca8ccf);
+    background:radial-gradient(#9e620a, #dc9b3c);
 }
 
 body{
@@ -17,12 +20,14 @@ body{
     justify-content:center;
 }
 
+/* title and game info container */
+
 .title {
-    font-family:"Ubuntu", sans-serif;
+    font-family:"Kalam", sans-serif;
     font-size: 6em;
     text-align: center;
     font-weight: normal;
-    color:#0a28ce;
+    color:#0cb5dc;
     margin:20px;
 }
 
@@ -30,38 +35,42 @@ body{
     grid-column: 1/-1;
     justify-content: space-between;
     display: flex;
-    margin:50px;
+    margin-bottom:10px;
 }
 
 .game-info {
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Kalam", sans-serif;
     font-size:3em;
-    color:#0a28ce;
+    color:#0cb5dc;
 }
 
-.memory-game {
-    height:700px;
-    width:700px;
-    display:flex;
-    flex-wrap: wrap;
-    perspective:1000px;
-    margin:auto;
+/* styles for the memory game container and cards */
+
+
+.memory-game-container {
+ display:grid;
+  grid-template-columns: repeat(4, auto);
+  grid-gap: 5px;
+  margin: 50px;
+  justify-content: center;
+  perspective: 1000px;
 }
 
 .memory-card {
-  width: calc(25% - 10px);
-  height: calc(33.333% - 10px);
+  width: 150px;
+  height: 180px;
   margin: 5px;
   position: relative;
   transform: scale(1);
   transform-style: preserve-3d;
   transition: transform .5s;
-  box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+  border-radius:5px;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.2);
 }
 
 .memory-card:active {
   transform: scale(0.96);
-  transition: transform .3s;
+  transition: transform .3s ease-in;
 }
 
 .memory-card.flip {
@@ -72,13 +81,64 @@ body{
 .card-back {
   width: 100%;
   height: 100%;
-  padding: 20px;
+  padding: 5px;
   position: absolute;
   border-radius: 5px;
-  background: #0a4e88;
+  background: #009688;;
   backface-visibility: hidden;
 }
 
 .card-front {
   transform: rotateY(180deg);
+
+}
+
+/* game text for start, victory and game over */
+
+.text-game {
+    font-family: "Kalam", sans-serif;
+    color:#0cb5dc;
+    position:fixed;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    align-items:center;
+    justify-content:center;
+    z-index: 100;
+    display:none;
+}
+
+.text-game-restart {
+    font-size:4em;
+}
+
+.text-game.active {
+    display:flex;
+    flex-direction:column;
+    animation:text-grow 500ms forwards;
+}
+
+@keyframes text-grow {
+    from {
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 0;
+  }
+  to {
+    background-color: rgba(0, 0, 0, .8);
+    font-size: 10em;
+  }
+}
+
+
+/*media queries game info and memory game containers */
+
+@media (max-width: 600px){
+.memory-game-container {
+     grid-template-columns: repeat(2, auto);
+}
+.game-info-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
