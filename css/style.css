@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
 
 @import url('https://fonts.googleapis.com/css?family=Kalam&display=swap');
 
@@ -27,13 +26,21 @@ body{
     font-size: 6em;
     text-align: center;
     font-weight: normal;
-    color:#0cb5dc;
+    color:#1f04af;
     margin:20px;
+}
+
+.sub-title {
+    font-family:"Kalam", sans-serif;
+    font-size:2em;
+    text-align: center;
+    color:black;
+    margin:50px;
 }
 
 .game-info-container {
     grid-column: 1/-1;
-    justify-content: space-between;
+    justify-content:space-evenly;
     display: flex;
     margin-bottom:10px;
 }
@@ -41,7 +48,7 @@ body{
 .game-info {
     font-family: "Kalam", sans-serif;
     font-size:3em;
-    color:#0cb5dc;
+    color:#1f04af;
 }
 
 /* styles for the memory game container and cards */
@@ -90,8 +97,8 @@ body{
 
 .card-front {
   transform: rotateY(180deg);
-
 }
+
 
 /* game text for start, victory and game over */
 
@@ -110,7 +117,7 @@ body{
 }
 
 .text-game-restart {
-    font-size:4em;
+    font-size:1em;
 }
 
 .text-game.active {
@@ -126,7 +133,7 @@ body{
   }
   to {
     background-color: rgba(0, 0, 0, .8);
-    font-size: 10em;
+    font-size: 7em;
   }
 }
 
