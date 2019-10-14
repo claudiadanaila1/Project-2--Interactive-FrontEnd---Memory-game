@@ -120,7 +120,7 @@ body{
     font-size:1em;
 }
 
-.text-game.active {
+.text-game.visible {
     display:flex;
     flex-direction:column;
     animation:text-grow 500ms forwards;
