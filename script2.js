@@ -1,14 +1,12 @@
 
-
 class MatchGame {
     constructor () {
     this.cards = Array.from(document.getElementsByClassName('memory-card'));
     this.cardsToCheck = [];
     this.cardsFlipped = 0; // click event remove
     this.cardsMatched = [];
-    
-    
-    
+
+
     this.cards.forEach(card => {
         card.addEventListener('click', () => {
             this.handleClickCard(card);
@@ -16,29 +14,26 @@ class MatchGame {
     });
     
     }
-    
+
     handleClickCard(card) {
         // check if card is matched
         
         // route 1 -> card is already matched 
         // route 2 -> card is not matched
-        console.log(card)
-        
+     
         this.flipCard(card)
-        
         this.cardsToCheck.push(card)
-        
-        console.log(this.cardsToCheck);
         
         if (this.cardsToCheck.length === 2) {
             
             const matchFound = this.checkForMatch()
             
             if (matchFound) {
-                console.log('match')
-                this.cardsMatched.push(...this.cardsToCheck);   
+            
+            this.cardsMatched.push(...this.cardsToCheck);  
+            this.cardsToCheck[0].removeEventListener('click',this.flipCard);
+            this.cardsToCheck[1].removeEventListener('click', this.flipCard);
             } else {
-                console.log('no match')
                 this.flipCard(this.cardsToCheck[0]);
                 this.flipCard(this.cardsToCheck[1]);
             }
@@ -88,7 +83,6 @@ function ready () {
         });
     });
     
-   
 }
 
 if(document.readyState === 'loading') {
